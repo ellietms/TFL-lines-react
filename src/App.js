@@ -6,16 +6,20 @@ function App() {
 const [dataTfl,setDataTfl] = useState();
 
 useEffect(()=>{
-  fetch("https://api.tfl.gov.uk/Line/Meta/Modes")
-  .then(res => res.json())
-  .then(data => setDataTfl(data));
+  fetchData();
 },[]);
 
+const  fetchData = async() => {
+  const data = await fetch("https://api.tfl.gov.uk/Line/Meta/Modes");
+  const vehicles = await data.json();
+  setDataTfl(vehicles);
+}
+  
 console.log(dataTfl);
 
 return (
     <div className="App">
-      <Select dataTfl={dataTfl}/>
+      {dataTfl.map(eachVehicle => <Select eachVehicle={eachVehicle}/>)}
     </div>
 );
 }
