@@ -1,15 +1,38 @@
 body{
-background-color: rgb(60, 39, 247);
+background-color: rgb(206, 204, 224);
 color: white;
 }
 
-img{
- border-radius: 50px;
+.navbar{
+  background-color: rgb(144, 10, 10);
 }
+
+.brand-image{
+ border-radius: 30%;
+ padding: auto;
+ width: 110px;
+}
+
+.header-tex-image{
+  width:120px;
+ border-radius:50px;
+ margin-right: 10px;
+}
+
 .header-text{
- color: white;
+ color: rgb(236, 231, 231);
  font-size: 40px;
+ margin-top: auto;
+ margin-bottom: auto;
+ font-weight: bold;
 }
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+  color: wheat;
+} 
 
 .form-control{
   text-align: center;
@@ -17,4 +40,9 @@ img{
   width: fit-content;
   border: 2px blue solid;
   color:black;
+}
+
+.nameVehicle{
+  color: black;
+  font-size: 40px;
 }
