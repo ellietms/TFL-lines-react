@@ -1,11 +1,20 @@
-.App {
-  text-align: center;
+body{
+background-color: rgb(60, 39, 247);
+color: white;
+}
+
+img{
+ border-radius: 50px;
+}
+.header-text{
+ color: white;
+ font-size: 40px;
 }
 
 .form-control{
   text-align: center;
   padding-left: auto;
-  width: 40%;
+  width: fit-content;
   border: 2px blue solid;
   color:black;
 }

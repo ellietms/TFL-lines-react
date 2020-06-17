@@ -3,15 +3,27 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 
-const Select = ({dataTfl}) => {
+const Select = ({dataTfl,nameVehicle,handleNameVehicle}) => {
 return(
     <div className="form-group">
-    <select className="form-control my-4 mx-auto" id="exampleFormControlSelect1">
-    <option className=""> Choose a Mode of Transport...</option>    
+    <select 
+    className="form-control my-4 mb-5 mx-auto"
+    onChange={(event) => handleNameVehicle(event)}>
+    <option> Choose a Mode of Transport...</option>  
     {dataTfl.map((eachVehicle,index) => 
-    <option key={index} className="text-center">{eachVehicle.modeName}</option>
-    )}
-    </select>
+    <option 
+       key={index} 
+       className="text-center"> 
+       {eachVehicle.modeName}
+       </option>
+   )}
+   </select>
+    <p className="ml-2">You selected mode:<span className="font-weight-bold
+     text-success ml-1">
+         {nameVehicle}
+         </span>
+    </p>
+
     </div>
 )
 }
