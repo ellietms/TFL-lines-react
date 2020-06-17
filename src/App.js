@@ -3,24 +3,21 @@ import Select from './Select';
 import './App.css';
 
 function App() {
-const [dataTfl,setDataTfl] = useState();
-
-useEffect(()=>{
-  fetchData();
-},[]);
-
-const  fetchData = async() => {
-  const data = await fetch("https://api.tfl.gov.uk/Line/Meta/Modes");
-  const vehicles = await data.json();
-  setDataTfl(vehicles);
-}
-  
+const [dataTfl,setDataTfl] = useState([]);
 console.log(dataTfl);
 
+useEffect(() => {
+  fetch(`https://api.tfl.gov.uk/Line/Meta/Modes`)
+  .then(res => res.json())
+  .then(data => setDataTfl(data))
+},[]);
+
+  
+
 return (
-    <div className="App">
-      {dataTfl.map(eachVehicle => <Select eachVehicle={eachVehicle}/>)}
-    </div>
+  <div className="App">
+  <Select dataTfl={dataTfl} />
+  </div>
 );
 }
 
