@@ -7,9 +7,15 @@ const [dataTfl,setDataTfl] = useState([]);
 console.log(dataTfl);
 
 useEffect(() => {
+
+  
+})
+
+useEffect(() => {
   fetch(`https://api.tfl.gov.uk/Line/Meta/Modes`)
   .then(res => res.json())
   .then(data => setDataTfl(data))
+  .catch(() => "Can’t access  to  response. Blocked by browser?")
 },[]);
 
   
