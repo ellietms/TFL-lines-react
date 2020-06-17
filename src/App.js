@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useEffect,useState}from 'react';
+import Select from './Select';
 import './App.css';
 
 function App() {
-  return (
+const [dataTfl,setDataTfl] = useState();
+
+useEffect(()=>{
+  fetch("https://api.tfl.gov.uk/Line/Meta/Modes")
+  .then(res => res.json())
+  .then(data => setDataTfl(data));
+},[]);
+
+console.log(dataTfl);
+
+return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Select dataTfl={dataTfl}/>
     </div>
-  );
+);
 }
+
 
 export default App;
