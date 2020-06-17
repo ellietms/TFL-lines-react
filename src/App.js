@@ -1,11 +1,15 @@
 import React,{useEffect,useState}from 'react';
 import Header from './Header';
 import Select from './Select';
+import Mode from './Mode';
+import VehicleName from './showVehicleName';
 import './App.css';
 
 function App() {
 const[dataTfl,setDataTfl] = useState([]);
 const[nameVehicle,setNameVehicle]= useState([]);
+
+
 
 useEffect(() => {
 
@@ -18,6 +22,8 @@ useEffect(() => {
   .catch(() => "Can’t access  to the response.")
 },[]);
 
+
+
 function handleNameVehicle(event) {
   if(event.target.value  !== "Choose a Mode of Transport...")
   setNameVehicle(event.target.value)
@@ -28,10 +34,15 @@ function handleNameVehicle(event) {
 
 return (
 <div className="App">
-<Header />    
+<Header /> 
+
 <Select 
 handleNameVehicle = {handleNameVehicle}
 dataTfl={dataTfl}
+nameVehicle ={nameVehicle}
+/>
+
+<VehicleName 
 nameVehicle ={nameVehicle}/>
 </div>  
 )}

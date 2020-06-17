@@ -37,8 +37,8 @@ a:hover{
 .form-control{
   text-align: center;
   padding-left: auto;
-  width: fit-content;
-  border: 2px blue solid;
+  width: 80%;
+  border: 2px rgb(151, 81, 76) solid;
   color:black;
 }
 

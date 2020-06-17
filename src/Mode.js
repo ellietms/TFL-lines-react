@@ -1,17 +1,26 @@
 import React,{useEffect,useState} from 'react';
-import Mode from './Mode';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
 
-const Select = ({dataTfl,handleNameVehicle,nameVehicle}) => { 
-    return(
+const Select = ({handleNameVehicle,nameVehicle}) => {
+    const[dataForMode,setDataForMode]=useState([]);
+    useEffect(() => {
+        fetch(`https://api.tfl.gov.uk/Line/Mode/${nameVehicle}`)
+         .then(res => res.json())
+         .then(data => {
+         if(data)
+           setDataForMode(data)
+          })
+         .catch(() => "Can’t access  to the response.")
+         },[])
+return(
     <div className="form-group">
     <select 
     className="form-control my-4 mb-5 mx-auto"
     onChange={(event) => handleNameVehicle(event)}>
     <option> Choose a Mode of Transport...</option>  
-    {dataTfl.map((eachVehicle,index) => 
+    {dataForMode.map((eachVehicle,index) => 
     <option 
        key={index} 
        className="text-center"> 
@@ -19,13 +28,6 @@ const Select = ({dataTfl,handleNameVehicle,nameVehicle}) => {
        </option>
    )}
    </select>
-
-    {/* <Mode 
-    handleNameVehicle = {handleNameVehicle}
-    dataForMode={dataForMode}
-    nameVehicle={nameVehicle}
-    /> */}
-
     </div>
 )
 }
