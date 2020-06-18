@@ -24,11 +24,11 @@ useEffect(() => {
 
 function handleNameVehicle(event) {
   if(event.target.value  !== "Choose a Mode of Transport...")
-  {const newValue = event.target.value;
-    setNameVehicle(newValue)
+  {const nameVehicle = event.target.value;
+  setNameVehicle(nameVehicle)
    console.log(nameVehicle);}
   else{
-  setNameVehicle("please choose your vehicle")
+  setNameVehicle("please choose your transportation mode")
   }
 }
   

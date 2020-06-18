@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React from 'react';
 import Mode from './Mode';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -23,6 +23,7 @@ const Select = ({dataTfl,handleNameVehicle,nameVehicle}) => {
     <Mode 
      handleNameVehicle = {handleNameVehicle}
      nameVehicle={nameVehicle}
+     dataTfl={dataTfl}
      />
     </div> 
 )
