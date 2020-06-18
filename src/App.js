@@ -1,14 +1,12 @@
 import React,{useEffect,useState}from 'react';
-import Header from './Header';
-import Select from './Select';
-import Mode from './Mode';
+import Header from './components/Header';
+import Select from './components/Select';
 import VehicleName from './showVehicleName';
 import './App.css';
 
 function App() {
 const[dataTfl,setDataTfl] = useState([]);
-const[nameVehicle,setNameVehicle]= useState([]);
-
+const[nameVehicle,setNameVehicle]= useState();
 
 
 useEffect(() => {
@@ -26,9 +24,12 @@ useEffect(() => {
 
 function handleNameVehicle(event) {
   if(event.target.value  !== "Choose a Mode of Transport...")
-  setNameVehicle(event.target.value)
-  else
-  setNameVehicle("you did not choose any vehicle")
+  {const newValue = event.target.value;
+    setNameVehicle(newValue)
+   console.log(nameVehicle);}
+  else{
+  setNameVehicle("please choose your vehicle")
+  }
 }
   
 

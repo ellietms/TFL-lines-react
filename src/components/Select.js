@@ -15,18 +15,16 @@ const Select = ({dataTfl,handleNameVehicle,nameVehicle}) => {
     <option 
        key={index} 
        className="text-center"> 
-       {eachVehicle.modeName}
-       </option>
-   )}
-   </select>
-
-    {/* <Mode 
-    handleNameVehicle = {handleNameVehicle}
-    dataForMode={dataForMode}
-    nameVehicle={nameVehicle}
-    /> */}
-
-    </div>
+    {eachVehicle.modeName}
+    </option>
+   )
+   }
+   </select>   
+    <Mode 
+     handleNameVehicle = {handleNameVehicle}
+     nameVehicle={nameVehicle}
+     />
+    </div> 
 )
 }
 
