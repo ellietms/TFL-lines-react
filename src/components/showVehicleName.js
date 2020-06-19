@@ -2,10 +2,11 @@ import React from 'react';
 
 const VehicleName = ({line}) => {
     return(
-        <p className="nameVehicle ml-2">You selected mode:<span className="font-weight-bold
-        text-dark ml-1">
-            {line}
-            </span>
+        <p className="nameVehicle ml-2">
+        <span className="font-weight-bold
+        text-dark mx-auto p-4 d-flex border border-danger">
+         You selected mode:{line}
+        </span>
        </p>
     )
 }

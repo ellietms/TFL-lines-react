@@ -4,8 +4,10 @@ color: white;
 }
 
 .navbar{
-  background-color: rgb(144, 10, 10);
+  background-color: rgb(10, 57, 144);
 }
+
+
 
 .brand-image{
  border-radius: 30%;
@@ -20,7 +22,7 @@ color: white;
 }
 
 .header-text{
- color: rgb(236, 231, 231);
+ color: rgb(235, 216, 216);
  font-size: 40px;
  margin-top: auto;
  margin-bottom: auto;
@@ -45,4 +47,12 @@ a:hover{
 .nameVehicle{
   color: black;
   font-size: 40px;
+}
+
+
+@media(max-width:1000px){
+  img{
+    display: none;
+  }
+  
 }

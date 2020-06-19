@@ -10,19 +10,27 @@ const Mode = ({nameVehicle}) => {
     useEffect(() => {
         fetch(`https://api.tfl.gov.uk/Line/Mode/${nameVehicle}`)
         .then((res) => res.json())
-        .then((data) => {   
-        setDataForNewMode(data);})
+        .then((data) => {     
+        setDataForNewMode(data);
+        console.log(data);
+     })
         .catch(() => "Can’t access  to the response.");
       },[nameVehicle]);
 
-      function handleLine(event){
-        if(event.target.value  !== "Mode of Transport..."){  
-        const newLine = event.target.value;
-        setLine(newLine);
-        }
-        else{
-        setLine("Sorry,this Transportation does not have any Mode ");
-        }
+    function handleLine(event){
+    if(dataForNewMode.length !== 0){ 
+    if(event.target.value !== "Mode of Transport..."){
+    const newLine = event.target.value;
+    setLine(newLine);}
+    }
+    else if(dataForNewMode.length === 0){
+    if(event.target.value === "Mode of Transport...") {
+     setLine("Sorry,this Transportation does not have any Mode ");
+    }
+    else{
+        
+    }
+    }
       }
     
   return (
