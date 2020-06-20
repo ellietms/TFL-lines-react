@@ -51,11 +51,12 @@ a:hover{
 }
 
 .selectedMode{
-  font-size: 30px;
+  font-size: 20px;
   border:5px solid black ;
   width: 50%;
   background-color: blue;
   color: white;
+  font-family: 'Merriweather', serif;
 }
 
 @media(max-width:1000px){

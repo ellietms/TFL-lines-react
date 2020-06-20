@@ -1,13 +1,13 @@
 import React from "react";
 
-const VehicleName = ({line}) => {
+const VehicleName = ({line,nameVehicle}) => {
   return (
     <p className="nameVehicle ml-2">
       <span
         className="selectedMode font-weight-bold
          mx-auto p-4 d-flex"
       >    
-        You selected mode:{line}
+        {nameVehicle} - {line}
       </span>
     </p>
   );
