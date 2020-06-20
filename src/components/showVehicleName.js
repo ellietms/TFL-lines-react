@@ -1,6 +1,6 @@
 import React from "react";
 
-const VehicleName = ({ line }) => {
+const VehicleName = ({line}) => {
   return (
     <p className="nameVehicle ml-2">
       <span

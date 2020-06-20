@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import VehicleName from "./showVehicleName";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Mode = ({ nameVehicle }) => {
+const Mode = ({nameVehicle}) => {
   const [dataForNewMode, setDataForNewMode] = useState([]);
   const [line, setLine] = useState("");
 
