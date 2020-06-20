@@ -1,6 +1,7 @@
 import React from 'react';
 
 const VehicleName = ({line}) => {
+    console.log(line)
     return(
         <p className="nameVehicle ml-2">
         <span className="font-weight-bold
