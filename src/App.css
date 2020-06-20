@@ -5,6 +5,7 @@ color: white;
 
 .navbar{
   background-color: rgb(10, 57, 144);
+  border: 10px solid black;
 }
 
 
@@ -40,7 +41,7 @@ a:hover{
   text-align: center;
   padding-left: auto;
   width: 80%;
-  border: 2px rgb(151, 81, 76) solid;
+  border: 2px rgb(12, 9, 9) solid;
   color:black;
 }
 
