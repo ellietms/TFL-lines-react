@@ -19,9 +19,9 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
     if (event.target.value !== "Mode of Transport...") {
       const newLine = event.target.value;
       setLine(newLine);
-      setNameVehicle(nameVehicle);
-    } else {
-      if (event.target.value === "Mode of Transport...") setNameVehicle(" ");
+      setNameVehicle(nameVehicle);}
+    else {
+      if (event.target.value === "Mode of Transport...")
       setLine("please choose your transportation mode");
     }
   }
@@ -49,19 +49,6 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
   } else {
     mode = (
       <div className="form-group">
-        <select
-          className="form-control my-4 mb-5 mx-auto"
-          onChange={(event) => handleLine(event)}
-        >
-          <option>Mode of Transport...</option>
-          {dataForNewMode.map((eachVehicle, index) => {
-            return (
-              <option key={index} className="text-center">
-                {eachVehicle.id}
-              </option>
-            );
-          })}
-        </select>
         <VehicleName
           nameVehicle={nameVehicle}
           line={"Sorry,We do not support this transportation mode"}
