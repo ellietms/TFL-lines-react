@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import VehicleName from "./showVehicleName";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Mode = ({nameVehicle,setNameVehicle}) => {
+const Mode = ({ nameVehicle, setNameVehicle }) => {
   const [dataForNewMode, setDataForNewMode] = useState([]);
   const [line, setLine] = useState("");
 
@@ -20,10 +20,8 @@ const Mode = ({nameVehicle,setNameVehicle}) => {
       const newLine = event.target.value;
       setLine(newLine);
       setNameVehicle(nameVehicle);
-    } 
-    else {
-      if(event.target.value === "Mode of Transport...")
-      setNameVehicle(" ")
+    } else {
+      if (event.target.value === "Mode of Transport...") setNameVehicle(" ");
       setLine("please choose your transportation mode");
     }
   }
@@ -45,9 +43,7 @@ const Mode = ({nameVehicle,setNameVehicle}) => {
             );
           })}
         </select>
-        <VehicleName
-         nameVehicle={nameVehicle}
-         line={line} />
+        <VehicleName nameVehicle={nameVehicle} line={line} />
       </div>
     );
   } else {

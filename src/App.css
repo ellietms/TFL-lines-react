@@ -45,18 +45,15 @@ a:hover{
   color:black;
 }
 
-.nameVehicle{
-  color: black;
-  font-size: 40px;
-}
 
 .selectedMode{
   font-size: 20px;
   border:5px solid black ;
-  width: 50%;
+  width: fit-content;
   background-color: blue;
   color: white;
   font-family: 'Merriweather', serif;
+  text-align: center;
 }
 
 @media(max-width:1000px){
