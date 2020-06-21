@@ -60,7 +60,7 @@ a:hover{
   text-align: center;
   margin: 5% auto;
   padding: auto auto;
-  width:fit-content;
+  width:30%;
   color: white;
   border:5px solid black ;
   background-color: rgb(6, 6, 133);
@@ -73,7 +73,6 @@ a:hover{
 .card-header{
   background-color: rgb(160, 203, 216);
   border:1px solid black ;
-  border-radius: 10px;
   margin: 2% auto;
   width: 100%;
   color: black;

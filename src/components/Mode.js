@@ -3,7 +3,7 @@ import VehicleName from "./showVehicleName";
 import ShowSelectedLine from "./showSelectedLine";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Mode = ({ nameVehicle, setNameVehicle }) => {
+const Mode = ({ nameVehicle, setNameVehicle}) => {
   const [dataForNewMode, setDataForNewMode] = useState([]);
   const [line, setLine] = useState("");
   useEffect(() => {
@@ -22,8 +22,10 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
       setNameVehicle(nameVehicle);
     } else {
       if (event.target.value === "Mode of Transport...")
-        setLine("please choose your transportation mode");
+        setLine("No transportation mode");
+        setNameVehicle(nameVehicle);
     }
+    
   }
 
   let lineSelected;
@@ -44,31 +46,27 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
           })}
         </select>
         <VehicleName nameVehicle={nameVehicle} line={line} />
-        {line !== "" && (
+        {(line !== "" || line !== "Mode of Transport...") && (
           <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle} />
         )}
       </div>
     );
-  } 
-  else {
+  } else {
     lineSelected = (
       <div className="form-group">
         <VehicleName
           nameVehicle={nameVehicle}
-          line={"Sorry,We do not support this transportation mode"}
+          line={"Sorry,please choose the mode of transportation"}
         />
-        {line !== "" && (
-          <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle} />
-        )}
+        {(line !== "" || line === "Mode of Transport...") && (
+          <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle}/>
+          )}
       </div>
     );
   }
+  
 
-  return (
-    <div>
-      {lineSelected}
-    </div>
-  );
-}
+  return <div>{lineSelected}</div>;
+};
 
 export default Mode;

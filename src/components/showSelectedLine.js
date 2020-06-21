@@ -11,7 +11,7 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
       .catch((error) => console.log("Sorry" + error.status));
   }, [selectedLine]);
 
-  let SelectedLine;
+  let showSelectedLine;
   if (dataForSelectedLine.length === 0) {
     return (
       <div>
@@ -23,28 +23,31 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
             <div className="card-body">
               <h5 className="card-title">No LINE</h5>
               <p className="card-text">
-                Sorry We do not have any transportation for this line
+                please,try to choose your transportation mode
               </p>
             </div>
           </div>
         </div>
       </div>
     );
-  } else {
-    SelectedLine = (
+  }
+  else {
+    if(selectedLine !== "Mode of Transport..."){
+    showSelectedLine = (
       <div>
         <div className="card mb-3 start-line ">
           <div className="card-header">
-            {nameVehicle} : {selectedLine}
+            {nameVehicle} - {selectedLine}
           </div>
           <div className="card-body">
+            
             <h5 className="card-title">START OF LINE</h5>
             <p className="card-text">{dataForSelectedLine.originationName}</p>
           </div>
         </div>
         <div className="card mb-3 start-line ">
           <div className="card-header">
-            {nameVehicle} : {selectedLine}
+            {nameVehicle} - {selectedLine}
           </div>
           <div className="card-body">
             <h5 className="card-title">END OF LINE</h5>
@@ -53,8 +56,26 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
         </div>
       </div>
     );
+    }
+    else{
+      showSelectedLine = (
+        <div>
+          <div className="card mb-3 start-line ">
+            <div className="card-header">
+              {nameVehicle} - {selectedLine}
+            </div>
+          </div>
+          <div className="card mb-3 start-line ">
+            <div className="card-header">
+              {nameVehicle} - {selectedLine}
+            </div>
+            <div className="card-body">
+            </div>
+          </div>
+        </div>
+      )}
   }
-  return <div>{SelectedLine}</div>;
+  return <div>{showSelectedLine}</div>;
 };
 
 export default ShowSelectedLine;
