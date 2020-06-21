@@ -10,7 +10,6 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
       .then((data) => setDataForSelectedLine(data.routeSections[0]))
       .catch((error) => console.log("Sorry" + error.status));
   }, [selectedLine]);
-  console.log(dataForSelectedLine);
 
   let SelectedLine;
   if (dataForSelectedLine.length === 0) {
@@ -33,7 +32,7 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
     );
   } else {
     SelectedLine = (
-        <div>
+      <div>
         <div className="card mb-3 start-line ">
           <div className="card-header">
             {nameVehicle} : {selectedLine}
@@ -52,7 +51,7 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
             <p className="card-text">{dataForSelectedLine.destinationName}</p>
           </div>
         </div>
-        </div>
+      </div>
     );
   }
   return <div>{SelectedLine}</div>;

@@ -8,7 +8,8 @@ const Header = () => {
         <img
           src="https://i.pinimg.com/originals/94/6e/79/946e798d26443cea7151e2ab8dabaf85.jpg"
           className="brand-image"
-          alt="Tfl information"/>
+          alt="Tfl information"
+        />
       </a>
       <span className="mx-auto">
         <img
@@ -29,7 +30,8 @@ const Header = () => {
       <img
         src="https://i.pinimg.com/originals/94/6e/79/946e798d26443cea7151e2ab8dabaf85.jpg"
         className="brand-image"
-         alt="Tfl information"/>
+        alt="Tfl information"
+      />
     </nav>
   );
 };

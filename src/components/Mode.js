@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import VehicleName from "./showVehicleName";
-import ShowSelectedLine from './showSelectedLine';
+import ShowSelectedLine from "./showSelectedLine";
 import "bootstrap/dist/css/bootstrap.css";
 
 const Mode = ({ nameVehicle, setNameVehicle }) => {
   const [dataForNewMode, setDataForNewMode] = useState([]);
   const [line, setLine] = useState("");
-  console.log(line);
   useEffect(() => {
     fetch(`https://api.tfl.gov.uk/Line/Mode/${nameVehicle}`)
       .then((res) => res.json())
@@ -21,15 +20,13 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
       const newLine = event.target.value;
       setLine(newLine);
       setNameVehicle(nameVehicle);
-      }
-    else {
+    } else {
       if (event.target.value === "Mode of Transport...")
-      setLine("please choose your transportation mode");
+        setLine("please choose your transportation mode");
     }
   }
 
   let lineSelected;
-
   if (dataForNewMode.length !== 0) {
     lineSelected = (
       <div className="form-group">
@@ -40,47 +37,38 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
           <option>Mode of Transport...</option>
           {dataForNewMode.map((eachVehicle, index) => {
             return (
-              <option key={index} 
-              className="text-center">
-              {eachVehicle.id}
+              <option key={index} className="text-center">
+                {eachVehicle.id}
               </option>
             );
           })}
         </select>
         <VehicleName nameVehicle={nameVehicle} line={line} />
-        { (line !== "") &&
-          <ShowSelectedLine
-          selectedLine={line}
-          nameVehicle={nameVehicle}/>
-        }
-        }
+        {line !== "" && (
+          <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle} />
+        )}
       </div>
     );
-  } else {
+  } 
+  else {
     lineSelected = (
       <div className="form-group">
         <VehicleName
           nameVehicle={nameVehicle}
           line={"Sorry,We do not support this transportation mode"}
         />
-        {(line !== "") &&
-          <ShowSelectedLine
-          selectedLine={line}
-          nameVehicle={nameVehicle}/>
-        }
+        {line !== "" && (
+          <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle} />
+        )}
       </div>
     );
   }
 
-  return(
-  <div>
-    {lineSelected}
-    {/* <ShowSelectedLine
-         selectedLine={line}
-         nameVehicle={nameVehicle}
-    /> */}
-  </div>
-  )
-};
+  return (
+    <div>
+      {lineSelected}
+    </div>
+  );
+}
 
 export default Mode;
