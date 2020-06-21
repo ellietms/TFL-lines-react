@@ -56,7 +56,7 @@ const Mode = ({ nameVehicle, setNameVehicle}) => {
       <div className="form-group">
         <VehicleName
           nameVehicle={nameVehicle}
-          line={"Sorry,please choose the mode of transportation"}
+          line={"Sorry,this transportation mode is not available"}
         />
         {(line !== "" || line === "Mode of Transport...") && (
           <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle}/>
