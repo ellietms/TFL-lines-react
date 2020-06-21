@@ -17,12 +17,12 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
     return (
       <div>
         <div>
-          <div className="card text-white bg-info mb-3">
+          <div className="card  mb-3 start-line">
             <div className="card-header">
               {nameVehicle} : {selectedLine}
             </div>
             <div className="card-body">
-              <h5 className="card-title">START OF LINE</h5>
+              <h5 className="card-title">No LINE</h5>
               <p className="card-text">
                 Sorry We do not have any transportation for this line
               </p>
@@ -33,6 +33,7 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
     );
   } else {
     SelectedLine = (
+        <div>
         <div className="card mb-3 start-line ">
           <div className="card-header">
             {nameVehicle} : {selectedLine}
@@ -41,6 +42,16 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
             <h5 className="card-title">START OF LINE</h5>
             <p className="card-text">{dataForSelectedLine.originationName}</p>
           </div>
+        </div>
+        <div className="card mb-3 start-line ">
+          <div className="card-header">
+            {nameVehicle} : {selectedLine}
+          </div>
+          <div className="card-body">
+            <h5 className="card-title">END OF LINE</h5>
+            <p className="card-text">{dataForSelectedLine.destinationName}</p>
+          </div>
+        </div>
         </div>
     );
   }
