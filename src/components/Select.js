@@ -1,7 +1,7 @@
-import React  from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Select = ({dataTfl, handleNameVehicle}) => {
+const Select = ({ dataTfl, handleNameVehicle }) => {
   return (
     <div className="form-group">
       <select

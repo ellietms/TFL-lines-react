@@ -3,7 +3,7 @@ import VehicleName from "./showVehicleName";
 import ShowSelectedLine from "./showSelectedLine";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Mode = ({ nameVehicle, setNameVehicle}) => {
+const Mode = ({ nameVehicle, setNameVehicle }) => {
   const [dataForNewMode, setDataForNewMode] = useState([]);
   const [line, setLine] = useState("");
   useEffect(() => {
@@ -23,9 +23,8 @@ const Mode = ({ nameVehicle, setNameVehicle}) => {
     } else {
       if (event.target.value === "Mode of Transport...")
         setLine("No transportation mode");
-        setNameVehicle(nameVehicle);
+      setNameVehicle(nameVehicle);
     }
-    
   }
 
   let lineSelected;
@@ -59,12 +58,11 @@ const Mode = ({ nameVehicle, setNameVehicle}) => {
           line={"Sorry,this transportation mode is not available"}
         />
         {(line !== "" || line === "Mode of Transport...") && (
-          <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle}/>
-          )}
+          <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle} />
+        )}
       </div>
     );
   }
-  
 
   return <div>{lineSelected}</div>;
 };

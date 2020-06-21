@@ -30,34 +30,31 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
         </div>
       </div>
     );
-  }
-  else {
-    if(selectedLine !== "Mode of Transport..."){
-    showSelectedLine = (
-      <div>
-        <div className="card mb-3 start-line ">
-          <div className="card-header">
-            {nameVehicle} - {selectedLine}
+  } else {
+    if (selectedLine !== "Mode of Transport...") {
+      showSelectedLine = (
+        <div>
+          <div className="card mb-3 start-line ">
+            <div className="card-header">
+              {nameVehicle} - {selectedLine}
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">START OF LINE</h5>
+              <p className="card-text">{dataForSelectedLine.originationName}</p>
+            </div>
           </div>
-          <div className="card-body">
-            
-            <h5 className="card-title">START OF LINE</h5>
-            <p className="card-text">{dataForSelectedLine.originationName}</p>
+          <div className="card mb-3 start-line ">
+            <div className="card-header">
+              {nameVehicle} - {selectedLine}
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">END OF LINE</h5>
+              <p className="card-text">{dataForSelectedLine.destinationName}</p>
+            </div>
           </div>
         </div>
-        <div className="card mb-3 start-line ">
-          <div className="card-header">
-            {nameVehicle} - {selectedLine}
-          </div>
-          <div className="card-body">
-            <h5 className="card-title">END OF LINE</h5>
-            <p className="card-text">{dataForSelectedLine.destinationName}</p>
-          </div>
-        </div>
-      </div>
-    );
-    }
-    else{
+      );
+    } else {
       showSelectedLine = (
         <div>
           <div className="card mb-3 start-line ">
@@ -69,11 +66,11 @@ const ShowSelectedLine = ({ selectedLine, nameVehicle }) => {
             <div className="card-header">
               {nameVehicle} - {selectedLine}
             </div>
-            <div className="card-body">
-            </div>
+            <div className="card-body"></div>
           </div>
         </div>
-      )}
+      );
+    }
   }
   return <div>{showSelectedLine}</div>;
 };
