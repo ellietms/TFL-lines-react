@@ -7,6 +7,8 @@ import "./App.css";
 function App() {
   const [dataTfl, setDataTfl] = useState([]);
   const [nameVehicle, setNameVehicle] = useState(null);
+  const [line, setLine] = useState("");
+
   useEffect(() => {}, []);
 
   useEffect(() => {
@@ -19,6 +21,7 @@ function App() {
   function handleNameVehicle(event) {
       const nameVehicle = event.target.value;
       setNameVehicle(nameVehicle);
+      setLine("");
   }
 
   return (
@@ -27,13 +30,15 @@ function App() {
       <Select
         handleNameVehicle={handleNameVehicle}
         dataTfl={dataTfl}
-        nameVehicle={nameVehicle}
       />
 
       {(nameVehicle !== null) &&
        <Mode 
        nameVehicle={nameVehicle}
-       setNameVehicle={setNameVehicle}/>}
+       setNameVehicle={setNameVehicle}
+       line={line}
+       setLine={setLine}
+       />}
     </div>
   );
 }

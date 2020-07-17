@@ -6,9 +6,7 @@ const Select = ({ dataTfl, handleNameVehicle }) => {
     <div className="form-group">
       <select
         className="form-control my-4 mb-5 mx-auto"
-        onChange={(event) => {
-          handleNameVehicle(event);
-        }}
+        onChange={(event) => {handleNameVehicle(event);}}
       >
         <option> Choose a Mode of Transport...</option>
         {dataTfl.map((eachVehicle, index) => (

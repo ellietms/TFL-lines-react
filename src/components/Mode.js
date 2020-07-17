@@ -3,9 +3,8 @@ import VehicleName from "./showVehicleName";
 import ShowSelectedLine from "./showSelectedLine";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Mode = ({ nameVehicle, setNameVehicle }) => {
+const Mode = ({ nameVehicle, setNameVehicle, line, setLine }) => {
   const [dataForNewMode, setDataForNewMode] = useState([]);
-  const [line, setLine] = useState("");
   useEffect(() => {
     fetch(`https://api.tfl.gov.uk/Line/Mode/${nameVehicle}`)
       .then((res) => res.json())
@@ -21,8 +20,7 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
       setLine(newLine);
       setNameVehicle(nameVehicle);
     } else {
-      if (event.target.value === "Mode of Transport...")
-        setLine("No transportation mode");
+      if (event.target.value === "Mode of Transport...") setLine("");
       setNameVehicle(nameVehicle);
     }
   }
@@ -35,7 +33,7 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
           className="form-control my-4 mb-5 mx-auto"
           onChange={(event) => handleLine(event)}
         >
-          <option>Mode of Transport...</option>
+          <option selected={line === ""}>Mode of Transport...</option>
           {dataForNewMode.map((eachVehicle, index) => {
             return (
               <option key={index} className="text-center">
@@ -45,7 +43,7 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
           })}
         </select>
         <VehicleName nameVehicle={nameVehicle} line={line} />
-        {(line !== "" || line !== "Mode of Transport...") && (
+        {line !== "" && (
           <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle} />
         )}
       </div>
@@ -57,7 +55,7 @@ const Mode = ({ nameVehicle, setNameVehicle }) => {
           nameVehicle={nameVehicle}
           line={"Sorry,this transportation mode is not available"}
         />
-        {(line !== "" || line === "Mode of Transport...") && (
+        {line !== "" && (
           <ShowSelectedLine selectedLine={line} nameVehicle={nameVehicle} />
         )}
       </div>
